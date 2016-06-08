@@ -1,0 +1,25 @@
+<section class="welcome container-fluid" ng-controller="HeaderController as hdrctr">
+	<div class="col-md-12 first" ng-show="hdrctr.hdrvars.authenticated">
+		This is simple chat app.
+	</div>
+	<div class="col-md-12 row" ng-show="hdrctr.hdrvars.authenticated">
+    <div class="chat" ng-controller="MessageController as msgctr">
+      <form ng-submit="sendMessage()">
+
+        <div class="col-xs-9">
+          <input class="form-control" autofocus placeholder="Message" autocomplete="off" ng-model="messageText">
+        </div>
+        <button type="submit" class="btn btn-danger">Send</button>
+      </form>
+      <ul>
+        <li ng-repeat="message in messages">{{message}}</li>
+      </ul>
+
+    </div>
+	</div>
+
+
+	<div class="col-md-12 first" ng-show="!hdrctr.hdrvars.authenticated">
+		Please authentificate, to enter chat.
+	</div>
+</section>
